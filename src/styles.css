@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i');
+/* font-family: 'Merriweather', serif; */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i');
+/* font-family: 'Open Sans', sans-serif; */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #252525;
+}
+
+p {
+    /* font-family: 'Merriweather', serif; */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* font-family: 'Merriweather', serif; */
+    font-family: 'Open Sans', sans-serif;
+    /* font-weight: 700; */
+    font-weight: 600;
+}
+
+#toolbarViewerMiddle {
+    position: relative;
+    left: 40%;
+    margin-top: 3px;
+}
+
+.fade {
+    opacity: 1;
+}
+
+.modal-backdrop.fade {
+    opacity: 0.6;
+}
+
+.modal-dialog {
+    top: 20%;
+    transition: top .15s linear;
+}
+
+.modal-title {
+    display: inline-block;
+}

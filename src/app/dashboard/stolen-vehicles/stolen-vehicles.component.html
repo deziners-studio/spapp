@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="page-title">
+      <h1 class="pull-left">Stolen Vehicles</h1>
+      <a routerLink="/dashboard/stolen-vehicles/add" class="btn btn-default pull-left">Add New</a>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- FIRS PANEL SECTION -->
+        <div class="panel panel-default">
+          <!-- <div class="panel-heading">
+            <h4 class="panel-title">FIRs</h4>
+          </div> -->
+          <div class="panel-body tabled-body" style="height: 300px; overflow: auto;">
+              <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>FIR No.</th>
+                      <th>Police Station</th>
+                      <th>Vehicle Type</th>
+                      <th>Vehicle Make</th>
+                      <th>Vehicle Modle</th>
+                      <th>Registration No.</th>
+                      <th>Engine No.</th>
+                      <th>Chassis No.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of stolenVelichesData">
+                    <td>{{ item.fir_date }}</td>
+                    <td>{{ item.fir_no }}</td>
+                    <td>{{ item.police_station_id }}</td>
+                    <td>{{ item.vehicle_type }}</td>
+                    <td>{{ item.vehicle_make }}</td>
+                    <td>{{ item.vehicle_model }}</td>
+                    <td>{{ item.vehicle_registration_no }}</td>
+                    <td>{{ item.vehicle_engine_no }}</td>
+                    <td>{{ item.vehicle_chassis_no }}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+        <!-- END OF FIRS PANEL SECTION -->
+      </div>
+    </div>
+  </div>

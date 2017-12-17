@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="page-title">
+      <h1 class="pull-left">Missing Persons</h1>
+      <a routerLink="/dashboard/missing-persons/add" class="btn btn-default pull-left">Add New</a>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- FIRS PANEL SECTION -->
+        <div class="panel panel-default">
+          <!-- <div class="panel-heading">
+            <h4 class="panel-title">FIRs</h4>
+          </div> -->
+          <div class="panel-body tabled-body" style="height: 300px; overflow: auto;">
+              <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th>Police Station</th>
+                      <th>Name</th>
+                      <th>Missing Registration No</th>
+                      <th>Missing From</th>
+                      <th>Gender</th>
+                      <th>Date of Birth</th>
+                      <th>Age</th>
+                      <th>Height</th>
+                      <th>Skin Colour</th>
+                      <th>Body Build Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of missingPersonsData">
+                    <td>{{ item.police_station_id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.missing_registration_no }}</td>
+                    <td>{{ item.missing_from }}</td>
+                    <td>{{ item.gender }}</td>
+                    <td>{{ item.dob }}</td>
+                    <td>{{ item.age }}</td>
+                    <td>{{ item.height }}</td>
+                    <td>{{ item.skin_colour }}</td>
+                    <td>{{ item.body_build_type }}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+        <!-- END OF FIRS PANEL SECTION -->
+      </div>
+    </div>
+  </div>

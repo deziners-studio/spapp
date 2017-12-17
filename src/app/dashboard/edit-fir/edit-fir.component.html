@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ modalTitle }}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="form" [formGroup]="firForm" novalidate>
+    <div class="form-group">
+      <label for="crno">CR No.</label>
+      <input type="text" class="form-control" formControlName="crno" placeholder="CR No.">
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="text" class="form-control" formControlName="date" placeholder="YYYY-MM-DD">
+    </div>
+    <div class="form-group">
+      <label for="crno">Police State</label>
+      <select name="" id="" class="form-control" formControlName="policeStationId">
+        <option value="">Select Police Station</option>
+        <option *ngFor="let item of policeStations" [value]="item.ps_id">{{ item.ps_station_name }}</option><!--[selected]="item.ps_id === data.fa_police_station_id"-->
+      </select>
+    </div>
+    <div class="form-group">
+        <label for="date">Attachment</label>
+        <input type="file" class="form-control" formControlName="file" placeholder="Attach File">
+      </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.dismiss('Close Click')">Close</button>
+  <button type="button" class="btn btn-outline-dark" (click)="onFirUpdate(firForm.value)">Update</button>
+</div>

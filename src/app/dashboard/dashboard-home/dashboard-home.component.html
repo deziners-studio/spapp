@@ -1,0 +1,90 @@
+<!-- HEADER SECTION -->
+<nav class="navbar navbar-default navbar-fixed-top header-navbar">
+	<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<img src="../../../assets/images/palghar-police-logo.png" height="30" alt="Palghar Police">
+				</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Welcome User <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="">User Settings</a></li>
+						<li><a href="">Options</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a (click)="onLogoutClick()">Logout</a></li>
+					</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+	</div>
+</nav>
+<!-- END OF HEADER SECTION -->
+
+<!-- PAGE SECTION -->
+<div class="page">
+	<!-- SIDEBAR SECTION -->
+	<div class="sidebar">
+		<!-- SIDEBAR MENU -->
+		<nav class="sidebar-menu">
+			<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+				<a routerLink="/dashboard"><i class="glyphicon glyphicon-th-large"></i> Dashboard</a>
+			</li>
+			<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+				<a routerLink="/dashboard/fir"><i class="glyphicon glyphicon-edit"></i> FIRs Information</a>
+				<ul class="sub-menu">
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/fir"><i class="glyphicon glyphicon-eye-open"></i> FIRs Information</a></li>
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/fir/add"><i class="glyphicon glyphicon-plus"></i> Add FIRs</a></li>
+				</ul>
+			</li>
+			<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+				<a routerLink="/dashboard/accident-information"><i class="glyphicon glyphicon-edit"></i> Accident Information</a>
+				<ul class="sub-menu">
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/accident-information"><i class="glyphicon glyphicon-eye-open"></i> Accident Information</a></li>
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/accident-information/add"><i class="glyphicon glyphicon-plus"></i> Add FIRs</a></li>
+				</ul>
+			</li>
+			<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+				<a routerLink="/dashboard/stolen-vehicles"><i class="glyphicon glyphicon-edit"></i> Stolen Vehicles</a>
+				<ul class="sub-menu">
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/stolen-vehicles"><i class="glyphicon glyphicon-eye-open"></i> Stolen Vehicles</a></li>
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/stolen-vehicles/add"><i class="glyphicon glyphicon-plus"></i> Add FIRs</a></li>
+				</ul>
+			</li>
+			<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+				<a routerLink="/dashboard/dead-bodies"><i class="glyphicon glyphicon-edit"></i> Dead Bodies</a>
+				<ul class="sub-menu">
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/dead-bodies"><i class="glyphicon glyphicon-eye-open"></i> Dead Bodies</a></li>
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/dead-bodies/add"><i class="glyphicon glyphicon-plus"></i> Add FIRs</a></li>
+				</ul>
+			</li>
+			<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+				<a routerLink="/dashboard/missing-persons"><i class="glyphicon glyphicon-edit"></i> Missing Persons</a>
+				<ul class="sub-menu">
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/missing-persons"><i class="glyphicon glyphicon-eye-open"></i> Missing Persons</a></li>
+					<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/dashboard/missing-persons/add"><i class="glyphicon glyphicon-plus"></i> Add FIRs</a></li>
+				</ul>
+			</li>
+		</nav>
+		<!-- END OF SIDEBAR MENU -->
+	</div>
+	<!-- END OF SIDEBAR SECTION -->
+
+	<!-- CONTENT SECTION -->
+	<div class="content-view">
+		<router-outlet></router-outlet>
+	</div>
+	<!-- END OF CONTENT SECTION -->
+</div>
+<!-- END OF PAGE SECTION -->

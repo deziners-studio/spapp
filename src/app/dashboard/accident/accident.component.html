@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="page-title">
+      <h1 class="pull-left">Accident Information</h1>
+      <a routerLink="/dashboard/accident-information/add" class="btn btn-default pull-left">Add New</a>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- FIRS PANEL SECTION -->
+        <div class="panel panel-default">
+          <!-- <div class="panel-heading">
+            <h4 class="panel-title">FIRs</h4>
+          </div> -->
+          <div class="panel-body tabled-body" style="height: 300px; overflow: auto;">
+              <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>CR No.</th>
+                      <th>Station</th>
+                      <th>Document</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of accidentData">
+                    <td>{{ item.fa_date }}</td>
+                    <td>{{ item.fa_crno }}</td>
+                    <td>{{ item.fa_police_station_id }}</td>
+                    <td>{{ item.fa_attachment }}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+        <!-- END OF FIRS PANEL SECTION -->
+      </div>
+    </div>
+  </div>

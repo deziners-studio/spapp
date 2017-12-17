@@ -1,0 +1,16 @@
+.page-title {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+
+.page-title > h1 {
+    margin: 0;
+    font-size: 18px;
+    padding: 10px 0;
+    margin-right: 15px;
+}
+
+.tabled-body {
+    padding: 0;
+}
