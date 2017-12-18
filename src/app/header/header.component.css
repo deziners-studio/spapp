@@ -1,0 +1,98 @@
+.social-header {
+    background-color: #8d1812;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.social-icons-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-icons-list > li {
+    float: left;
+}
+
+.social-icons-list > li > a.social-icon-item {
+    display: block;
+    padding: 5px 8px;
+    line-height: 14px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.news-marquee {
+    padding-top: 2px;
+}
+
+.marquee {
+    display: block;
+    height: 100%;
+}
+
+.main-header {
+    margin-bottom: 0;
+}
+
+.navbar-toggle {
+    margin-top: 28px;
+}
+
+.navbar-brand {
+    height: auto;
+    /* padding-left: 0; */
+}
+
+.main-header .navbar-nav {
+    margin-top: 20px;
+}
+
+.navbar-default .navbar-nav > li {
+    margin-right: 5px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    background-color: #022444;
+    color: #fff;
+    border: none;
+    border-left: 5px solid #8d1812;
+    font-weight: 300;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li.active > a, .navbar-default .navbar-nav > li.acitve > a:hover, .navbar-default .navbar-nav > li.dropdown.open > a {
+    background-color: #8d1812;
+    color: #fff;
+    border: none;
+    border-left: 5px solid #022444;
+}
+
+.main-header .navbar-nav > li > .dropdown-menu {
+    background-color: #022444;
+    color: #fff;
+}
+
+.main-header .dropdown-menu > li {
+    border-bottom: thin dotted rgba(255,255,255,.5);
+}
+
+.main-header .dropdown-menu > li > a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.main-header .dropdown-menu > li > a:hover {
+    background-color: #8d1812;
+}
+
+.blue-divider {
+    background-color: #022444;
+    height: 10px;
+    /* margin-bottom: 15px; */
+}

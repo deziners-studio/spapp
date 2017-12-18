@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="content-container page-area">
+  <div class="container">
+    <h4 class="ng-scope">Fir / Accident Information</h4>
+    <form class="form search-form ng-pristine ng-valid ng-scope ng-valid-required ng-valid-date">
+      <div class="row">
+          <div class="col-md-3">
+              <label for="">CR No.</label>
+              <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" name="crno" ng-model="crno" placeholder="CR No." aria-invalid="false" style="">
+          </div>
+          <div class="col-md-2">
+              <label for="">Type</label>
+              <select name="type" id="" ng-model="type" class="form-control ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false" style="">
+                      <option value="" selected="selected">Select Type</option>
+                  <option value="FIR">FIR</option>
+                  <option value="Accident Information">Accident Information</option>
+              </select>
+          </div>
+          <div class="col-md-3">
+              <label for="">Police Station</label>
+              <select name="policeStation" id="" ng-model="policeStation" class="form-control ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false" style="">
+                  <option value="" selected="selected">Select Police Station</option>
+                  <!-- ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="1" class="ng-binding ng-scope" style="">Arnala Coastal Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="2" class="ng-binding ng-scope">Boisar MIDC Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="3" class="ng-binding ng-scope">Dahanu Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="4" class="ng-binding ng-scope">Gholwad Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="5" class="ng-binding ng-scope">Jawhar Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="6" class="ng-binding ng-scope">Kasa police station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="7" class="ng-binding ng-scope">Kelva Sagri Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="8" class="ng-binding ng-scope">Manikpur Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="9" class="ng-binding ng-scope">Manor Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="10" class="ng-binding ng-scope">Mokhada Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="11" class="ng-binding ng-scope">Nalasopara Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="12" class="ng-binding ng-scope">Palghar Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="13" class="ng-binding ng-scope">Saphale Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="14" class="ng-binding ng-scope">Satpati Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="15" class="ng-binding ng-scope">Talasari Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="16" class="ng-binding ng-scope">Tarapur Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="17" class="ng-binding ng-scope">Tulinj Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="18" class="ng-binding ng-scope">Valiv Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="19" class="ng-binding ng-scope">Vangaon Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="20" class="ng-binding ng-scope">Vasai Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="21" class="ng-binding ng-scope">Vikramgad Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="22" class="ng-binding ng-scope">Virar Police Station</option><!-- end ngRepeat: item in policeStations --><option ng-repeat="item in policeStations" value="23" class="ng-binding ng-scope">Wada Police Station</option><!-- end ngRepeat: item in policeStations -->
+              </select>
+          </div>
+          <div class="col-md-2">
+              <label for="">Select Date</label>
+              <div class="input-group">
+                  <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required ng-valid-date" uib-datepicker-popup="" ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" required="required" aria-invalid="false">
+                    <div uib-datepicker-popup-wrap="" ng-model="date" ng-change="dateSelection(date)" template-url="uib/template/datepickerPopup/popup.html" class="ng-pristine ng-untouched ng-valid ng-scope ng-not-empty" aria-invalid="false"><!-- ngIf: isOpen --></div>
+                  <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+              </div>
+          </div>
+          <div class="col-md-2">
+              <button type="button" class="btn btn-primary" style="margin-top: 22px;" ng-click="onSearchClick()">Search</button>
+          </div>
+      </div>
+    </form>
+
+    <div class="custom-pdv-viewer" style="height: 550px; overflow: hidden; overflow-y: auto; margin-top: 15px;">
+        
+    </div>
+
+  </div>
+</div>
+<app-footer></app-footer>
