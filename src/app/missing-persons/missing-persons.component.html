@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="content-container page-area">
+  <div class="container">
+    <h4 class="ng-scope">Missing Persons Information</h4>
+    <form class="form search-form">
+      <div class="row">
+          <div class="col-md-3">
+              <label for="">Name</label>
+              <input type="text" class="form-control" name="name" [(ngModel)]="formModel.name" placeholder="Name">
+          </div>
+          <div class="col-md-3">
+              <label for="">Missing Registration No.</label>
+              <input type="text" class="form-control" name="missingRegistrationNo" [(ngModel)]="formModel.missingRegNo" placeholder="Missing Registration No.">
+          </div>
+          <div class="col-md-3">
+              <label for="">Police Station</label>
+              <select name="policeStation" [(ngModel)]="formModel.policeStation" class="form-control">
+                  <option value="" selected="selected">Select Police Station</option>
+                  <option *ngFor="let item of policeStations" value="{{item.ps_id}}">{{ item.ps_station_name }}</option>
+              </select>
+          </div>
+          <div class="col-md-2">
+              <button type="button" class="btn btn-primary" style="margin-top: 22px;" (click)="onSearchClick()">Search</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlertModule } from 'ngx-bootstrap';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,6 +23,9 @@ import { PoliceStationsService } from './services/police-stations/police-station
 import { StolenVehiclesService } from './services/stolen-vehicles/stolen-vehicles.service';
 import { DeadBodiesService } from './services/dead-bodies/dead-bodies.service';
 import { MissingPersonsService } from './services/missing-persons/missing-persons.service';
+import { StolenVehiclesComponent } from './stolen-vehicles/stolen-vehicles.component';
+import { DeadBodiesComponent } from './dead-bodies/dead-bodies.component';
+import { MissingPersonsComponent } from './missing-persons/missing-persons.component';
 
 
 @NgModule({
@@ -31,7 +35,10 @@ import { MissingPersonsService } from './services/missing-persons/missing-person
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    FirAccidentComponent
+    FirAccidentComponent,
+    StolenVehiclesComponent,
+    DeadBodiesComponent,
+    MissingPersonsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +46,7 @@ import { MissingPersonsService } from './services/missing-persons/missing-person
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    PdfViewerModule,
     NgbModule.forRoot(),
     ModalDialogModule.forRoot(),
     AlertModule.forRoot(),
