@@ -33,7 +33,7 @@ import { MissingPersonsService } from './services/missing-persons/missing-person
     ReactiveFormsModule,
     HttpModule,
     NgbModule.forRoot(),
-    ModalDialogModule.forRoot()
+    ModalDialogModule.forRoot(),
   ],
   providers: [
     AuthService,

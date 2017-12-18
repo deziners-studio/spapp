@@ -18,14 +18,15 @@
                       <th>CR No.</th>
                       <th>Station</th>
                       <th>Document</th>
-                      <th></th>
+                      <th width="3%"></th>
                     </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of firsData">
                     <td>{{ item.fa_date }}</td>
                     <td>{{ item.fa_crno }}</td>
-                    <td>{{ item.fa_police_station_id }}</td>
+                    <!-- <td>{{ item.fa_police_station_id }}</td> -->
+                    <td>{{ item.ps_station_name }}</td>
                     <td>{{ item.fa_attachment }}</td>
                     <td><button type="button" class="btn-icon" (click)="editItem(item)"><i class="glyphicon glyphicon-pencil"></i></button></td>
                   </tr>

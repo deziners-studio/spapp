@@ -1,10 +1,39 @@
 <div class="container-fluid">
-  <div class="page-title">
-      <h1 class="pull-left">Add Accident Information</h1>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <p>sample text...</p>
+    <div class="page-title">
+        <h1 class="pull-left">Add Accident Information</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert {{ alertClass }}" role="alert" *ngIf="alert">
+          <span>{{ alertMessage }}</span>
+        </div>
+        <form class="form" [formGroup]="addForm" novalidate (ngSubmit)="submitForm(addForm.value)">
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="crno">CR No.</label>
+              <input type="text" formControlName="crno" class="form-control" placeholder="CR No.">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="police_station">Police Station</label>
+              <select formControlName="police_station" class="form-control">
+                <option value="">Select Police Station</option>
+                <option *ngFor="let item of policeStations" [value]="item.ps_id">{{ item.ps_station_name }}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="date">Date</label>
+              <input type="text" formControlName="date" class="form-control" placeholder="YYYY-MM-DD">
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="attachment">Attachment</label>
+              <input type="file" #fileInput (change)="onFileChange($event)" class="form-control" placeholder="Attachment">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Add Accident Information</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>

@@ -24,12 +24,14 @@ export class FirComponent implements OnInit {
         (result) => {
           // console.log('Result: ', result);
           this.firsAccidentData = result.records;
+          console.log('records:', result);
 
           for ( let i in this.firsAccidentData ) {
             if ( this.firsAccidentData[i].fa_type ===  'FIR' ) {
               this.firsData.push(this.firsAccidentData[i]);
             }
           }
+          console.log('FIRs: ', this.firsData);
         },
         (error) => {
           console.log('Error', error);

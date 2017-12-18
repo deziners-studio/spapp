@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class MissingPersonsService {
 
-  private _allApi = 'http://spapplication.sentr.co.in/api/missing-persons/read.php';
+  private _allApi = 'http://spapp.dezinersstudio.com/api/missing-persons/read.php';
 
   constructor(private http: Http) { }
 
@@ -20,6 +20,13 @@ export class MissingPersonsService {
 
   private handleError(error: Response) {
     return Observable.throw(error.statusText);
+  }
+
+  addNew(fileupload: any): Observable<any> {
+    let input = new FormData();
+    input.append('file', fileupload);
+    console.log('input', input);
+    return;
   }
 
 }

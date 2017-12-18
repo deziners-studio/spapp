@@ -10,7 +10,7 @@ export class AuthService {
 
   headers: Headers;
   options: RequestOptions;
-  private _loginApi = 'http://spapp.sentr.co.in/api/users/login.php';
+  private _loginApi = 'http://spapp.dezinersstudio.com/api/users/login.php';
 
   constructor(
     private http: Http
