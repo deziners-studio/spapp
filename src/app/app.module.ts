@@ -3,12 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModule } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { FirAccidentComponent } from './fir-accident/fir-accident.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { FirsService } from './services/firs/firs.service';
@@ -24,7 +28,10 @@ import { MissingPersonsService } from './services/missing-persons/missing-person
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent,
+    FirAccidentComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +41,7 @@ import { MissingPersonsService } from './services/missing-persons/missing-person
     HttpModule,
     NgbModule.forRoot(),
     ModalDialogModule.forRoot(),
+    AlertModule.forRoot(),
   ],
   providers: [
     AuthService,
