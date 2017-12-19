@@ -1,11 +1,84 @@
 <div class="container-fluid">
-  <div class="page-title">
-      <h1 class="pull-left">Add Missing Person</h1>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <input #fileInput type="file"/>
-      <button type="button" (click)="addFile()">Add</button>
+    <div class="page-title">
+        <h1 class="pull-left">Add Missing Person</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert {{ alertClass }}" role="alert" *ngIf="alert">
+          <span>{{ alertMessage }}</span>
+        </div>
+        <form class="form" [formGroup]="addForm" novalidate (ngSubmit)="submitForm(addForm.value)">
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="name">Name</label>
+              <input type="text" formControlName="name" class="form-control" placeholder="Name">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="missing_registration_no">Missing Registration No.</label>
+              <input type="text" formControlName="missing_registration_no" class="form-control" placeholder="Missing Registration No.">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="missing_from">Missing From</label>
+              <input type="text" formControlName="missing_from" class="form-control" placeholder="YYYY-MM-DD">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="gender">Gender</label>
+              <select formControlName="gender" class="form-control">
+                <option value="">Select Gender</option>
+                <option *ngFor="let item of gender" [value]="item">{{ item }}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="dob">Date of Birth</label>
+              <input type="text" formControlName="dob" class="form-control" placeholder="YYYY-MM-DD">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="age">Age</label>
+              <input type="text" formControlName="age" class="form-control" placeholder="Age">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="height">Height</label>
+              <input type="text" formControlName="height" class="form-control" placeholder="Height">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="skin_colour">Colour of Skin</label>
+              <input type="text" formControlName="skin_colour" class="form-control" placeholder="Colour of Skin">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="police_station">Police Station</label>
+              <select formControlName="police_station" class="form-control">
+                <option value="">Select Police Station</option>
+                <option *ngFor="let item of policeStations" [value]="item.ps_id">{{ item.ps_station_name }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for="">Select Body Type</label>
+              <div class="radio" *ngFor="let item of bodyBuildType">
+                <label for="body_build_type">
+                  <input type="radio" formControlName="body_build_type" [value]="item">
+                  {{item}}
+                </label>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="attachment">Attachment</label>
+              <input type="file" #fileInput (change)="onFileChange($event)" class="form-control" placeholder="Attachment">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Add Missing Person</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>

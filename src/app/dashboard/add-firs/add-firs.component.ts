@@ -90,6 +90,7 @@ export class AddFirsComponent implements OnInit {
     data.type = 'FIR';
     data.filename = data.attachment.name;
 
+    console.log('Data: ', data);
     const formModel = this.prepareSave(data);
     console.log('Sending Data: ', formModel);
 
