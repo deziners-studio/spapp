@@ -26,6 +26,7 @@ import { MissingPersonsService } from './services/missing-persons/missing-person
 import { StolenVehiclesComponent } from './stolen-vehicles/stolen-vehicles.component';
 import { DeadBodiesComponent } from './dead-bodies/dead-bodies.component';
 import { MissingPersonsComponent } from './missing-persons/missing-persons.component';
+import { UsersService } from './services/users/users.service';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { MissingPersonsComponent } from './missing-persons/missing-persons.compo
     PoliceStationsService,
     StolenVehiclesService,
     DeadBodiesService,
-    MissingPersonsService
+    MissingPersonsService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

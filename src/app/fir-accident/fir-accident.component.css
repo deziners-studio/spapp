@@ -13,3 +13,55 @@
     -ms-box-shadow: 0 0 15px -2px rgba(0,0,0,.7);
     box-shadow: 0 0 15px -2px rgba(0,0,0,.7);
 }
+
+.pdf-viewer-header {
+    background-color: #252525;
+    color: #fff;
+    padding: 3px 5px;
+    font-size: 10px;
+}
+
+.pdf-navigation {
+    text-align: left;
+}
+
+.btn-prev, .btn-next {
+    background: none;
+    border: none;
+    padding: 3px;
+}
+
+.btn-prev:hover, .btn-next:hover {
+    background-color: rgba(0,0,0,.4);
+    border: none;
+    color: #fff;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+}
+
+.pdf-view-options {
+    text-align: center;
+}
+
+.pdf-view-options .btn-group > .btn {
+    font-size: 11px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.pdf-options {
+    text-align: right;
+}
+
+.page-selection {
+    display: inline-block;
+}
+
+.page-selection > input {
+    width: 20px;
+    text-align: center;
+    color: #333;
+}

@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="page-title">
+        <h1 class="pull-left">Add User</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert {{ alertClass }}" role="alert" *ngIf="alert">
+          <span>{{ alertMessage }}</span>
+        </div>
+        <form class="form" [formGroup]="addForm" novalidate (ngSubmit)="submitForm(addForm.value)">
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="name">Username</label>
+              <input type="text" formControlName="username" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="password">Password</label>
+              <input type="password" formControlName="password" class="form-control" placeholder="Missing Registration No.">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="confirm_password">Confirm Password</label>
+              <input type="password" formControlName="confirm_password" class="form-control" placeholder="Confirm Password">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="role">Role</label>
+              <select formControlName="role" class="form-control">
+                <option value="">Select Role</option>
+                <option *ngFor="let item of roles" [value]="item">{{ item }}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="police_station">Police Station</label>
+              <select formControlName="police_station" class="form-control">
+                <option value="">Select Police Station</option>
+                <option *ngFor="let item of policeStations" [value]="item.ps_id">{{ item.ps_station_name }}</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="row">
+            <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Add User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

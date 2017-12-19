@@ -16,6 +16,8 @@ import { AddAccidentInformationComponent } from './add-accident-information/add-
 import { AddStolenVehiclesComponent } from './add-stolen-vehicles/add-stolen-vehicles.component';
 import { AddDeadBodiesComponent } from './add-dead-bodies/add-dead-bodies.component';
 import { AddMissingPersonsComponent } from './add-missing-persons/add-missing-persons.component';
+import { UsersComponent } from './users/users.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 const routes: Routes = [
   {
@@ -33,7 +35,9 @@ const routes: Routes = [
       { path: 'dead-bodies', component: DeadBodiesComponent },
       { path: 'dead-bodies/add', component: AddDeadBodiesComponent },
       { path: 'missing-persons', component: MissingPersonsComponent },
-      { path: 'missing-persons/add', component: AddMissingPersonsComponent }
+      { path: 'missing-persons/add', component: AddMissingPersonsComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'users/add', component: AddUserComponent }
     ]
   }
 ];

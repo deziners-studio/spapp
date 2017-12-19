@@ -16,6 +16,8 @@ import { AddAccidentInformationComponent } from './add-accident-information/add-
 import { AddStolenVehiclesComponent } from './add-stolen-vehicles/add-stolen-vehicles.component';
 import { AddDeadBodiesComponent } from './add-dead-bodies/add-dead-bodies.component';
 import { AddMissingPersonsComponent } from './add-missing-persons/add-missing-persons.component';
+import { UsersComponent } from './users/users.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   imports: [
@@ -37,7 +39,9 @@ import { AddMissingPersonsComponent } from './add-missing-persons/add-missing-pe
     AddAccidentInformationComponent,
     AddStolenVehiclesComponent,
     AddDeadBodiesComponent,
-    AddMissingPersonsComponent
+    AddMissingPersonsComponent,
+    UsersComponent,
+    AddUserComponent
   ],
   entryComponents: [EditFirComponent]
 })

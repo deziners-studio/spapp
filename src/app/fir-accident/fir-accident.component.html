@@ -39,8 +39,41 @@
         </div>
     </form>
     
-    <div class="custom-pdv-viewer" style="height: 550px; overflow: hidden; overflow-y: auto; margin-top: 15px;">
-        <pdf-viewer *ngIf="isShowPdfEnabled" [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer>
+    <div class="custom-pdv-viewer" *ngIf="isShowPdfEnabled" style="margin-top: 15px;">
+        <div class="pdf-viewer-header">
+            <div class="row">
+                <div class="col-md-4 pdf-navigation">
+                    <button type="button" class="btn-prev" [disabled]="pdfViewerOptions.page === 1" (click)="prevPage()"><i class="glyphicon glyphicon-triangle-left"></i></button>
+                    <button type="button" class="btn-next" [disabled]="pdfViewerOptions.page === totalPages" (click)="nextPage()"><i class="glyphicon glyphicon-triangle-right"></i></button>
+                    <span class="page-switch">Show by Pages: <input type="checkbox" [(ngModel)]="pdfViewerOptions.showAll"></span>
+                    <div class="page-selection">
+                        <input type="text" [(ngModel)]="pdfViewerOptions.page">
+                        <span class="totalPageCount">/ {{totalPages}}</span>
+                    </div>
+                </div>
+                <div class="col-md-4 pdf-view-options">
+                    <button type="button" class="btn-prev"><i class="glyphicon glyphicon-minus"></i></button>
+                    <button type="button" class="btn-next"><i class="glyphicon glyphicon-plus"></i></button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Full Width <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">100%</a></li>
+                            <li><a href="#">70%</a></li>
+                            <li><a href="#">60%</a></li>
+                            <li><a href="#">50%</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 pdf-options">
+                    <button type="button" class="btn-next"><i class="glyphicon glyphicon-download-alt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="pdf-viewer-body" style="height: 550px; overflow: hidden; overflow-y: auto;">
+            <pdf-viewer [src]="pdfSrc" [render-text]="true" [(show-all)]="pdfViewerOptions.showAll" [(page)]="pdfViewerOptions.page" (after-load-complete)="afterLoadComplete($event)" style="display: block;"></pdf-viewer>
+        </div>
     </div>
 
   </div>
