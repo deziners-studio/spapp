@@ -10,7 +10,7 @@ import { PoliceStationsService } from '../services/police-stations/police-statio
 export class FirAccidentComponent implements OnInit {
 
     private pdfSrc = '../assets/cr.no.46-6.11.2017-CCTNSPalghar.pdf';
-    private isShowPdfEnabled = false;
+    public isShowPdfEnabled = false;
     missingPersonsData: any;
     policeStations: any = [];
     totalPages: number;
@@ -57,7 +57,7 @@ export class FirAccidentComponent implements OnInit {
     this.totalPages = pdfData.numPages;
     }
 
-    private onSearchClick() {
+    public onSearchClick() {
         this.isShowPdfEnabled = true;
         console.log(' this.isShowPdfEnabled --> ', this.isShowPdfEnabled);
     }

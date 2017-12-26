@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-3">
                 <label for="">CR No.</label>
-                <input type="text" class="form-control" name="crno" [(ngModel)]="crno" placeholder="CR No." aria-invalid="false">
+                <input type="text" class="form-control" name="crno" placeholder="CR No." aria-invalid="false">
             </div>
             <div class="col-md-2">
                 <label for="">Type</label>
@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-3">
                 <label for="">Police Station</label>
-                <select name="policeStation" [(ngModel)]="policeStation" class="form-control">
+                <select name="policeStation" class="form-control">
                     <option value="" selected="selected">Select Police Station</option>
                     <option *ngFor="let item of policeStations" value="{{item.ps_id}}">{{ item.ps_station_name }}</option>
                 </select>
