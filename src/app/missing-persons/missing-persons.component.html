@@ -1,29 +1,87 @@
 <app-header></app-header>
 <div class="content-container page-area">
   <div class="container">
-    <h4 class="ng-scope">Missing Persons Information</h4>
-    <form class="form search-form">
+    <h4>Missing Persons Information</h4>
+    <form class="form search-form" [formGroup]="searchForm" novalidate (ngSubmit)="onSearchClick(searchForm.value)">
       <div class="row">
           <div class="col-md-3">
               <label for="">Name</label>
-              <input type="text" class="form-control" name="name" [(ngModel)]="formModel.name" placeholder="Name">
+              <input type="text" class="form-control" formControlName="name" placeholder="Name">
           </div>
           <div class="col-md-3">
               <label for="">Missing Registration No.</label>
-              <input type="text" class="form-control" name="missingRegistrationNo" [(ngModel)]="formModel.missingRegNo" placeholder="Missing Registration No.">
+              <input type="text" class="form-control" formControlName="missing_registration_no" placeholder="Missing Registration No.">
           </div>
           <div class="col-md-3">
-              <label for="">Police Station</label>
-              <select name="policeStation" [(ngModel)]="formModel.policeStation" class="form-control">
-                  <option value="" selected="selected">Select Police Station</option>
-                  <option *ngFor="let item of policeStations" value="{{item.ps_id}}">{{ item.ps_station_name }}</option>
-              </select>
-          </div>
-          <div class="col-md-2">
-              <button type="button" class="btn btn-primary" style="margin-top: 22px;" (click)="onSearchClick()">Search</button>
-          </div>
+                <label for="">Police Station</label>
+                <select formControlName="police_station" class="form-control">
+                    <option value="" selected="selected">Select Police Station</option>
+                    <option *ngFor="let item of policeStations" [value]="item.ps_id">{{ item.ps_station_name }}</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" style="margin-top: 22px;">Search</button>
+            </div>
       </div>
     </form>
+
+    <div class="row">
+        <!-- <p *ngIf="missingPersonsCount > 0">Found {{ missingPersonsCount }} records...</p> -->
+        <div class="col-md-12 col-lg-12">
+            <div class="persons-list" *ngFor="let item of missingPersonsData">
+                <div class="person-photo">
+                    <img src="" alt="">
+                    <span *ngIf="item.photograph === ''">No Photo Available</span>
+                </div>
+                <div class="person-details">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Name</th>
+                                <td>{{ item.name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Age</th>
+                                <td>{{ item.age }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date of Birth</th>
+                                <td>{{ item.dob }}</td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td>{{ item.gender }}</td>
+                            </tr>
+                            <tr>
+                                <th>Height</th>
+                                <td>{{ item.height }}</td>
+                            </tr>
+                            <tr>
+                                <th>Skin Colour</th>
+                                <td>{{ item.skin_colour }}</td>
+                            </tr>
+                            <tr>
+                                <th>Body Build Type</th>
+                                <td>{{ item.body_build_type }}</td>
+                            </tr>
+                            <tr>
+                                <th>Missing Registration No.</th>
+                                <td>{{ item.missing_registration_no }}</td>
+                            </tr>
+                            <tr>
+                                <th>Missing From</th>
+                                <td>{{ item.missing_from }}</td>
+                            </tr>
+                            <tr>
+                                <th>Police Station</th>
+                                <td>{{ item.ps_station_name }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
 <app-footer></app-footer>

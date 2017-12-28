@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'fir-accident', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'fir-accident', component: FirAccidentComponent },
-  { path: 'stolen-vehicle', component: StolenVehiclesComponent },
+  { path: 'stolen-vehicles', component: StolenVehiclesComponent },
   { path: 'dead-bodies', component: DeadBodiesComponent },
   { path: 'missing-persons', component: MissingPersonsComponent },
   { path: 'dashboard', loadChildren: 'app/dashboard/dashboard.module#DashboardModule' }

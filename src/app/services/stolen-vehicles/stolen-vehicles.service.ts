@@ -7,6 +7,7 @@ export class StolenVehiclesService {
 
   private _allApi = 'http://spapp.dezinersstudio.com/api/stolen-vehicles/read.php';
   private _addApi = 'http://spapp.dezinersstudio.com/api/stolen-vehicles/add.php';
+  private _getByParamsApi = 'http://spapp.dezinersstudio.com/api/stolen-vehicles/read_byparams.php';
 
   constructor(private http: Http) { }
 
@@ -17,6 +18,15 @@ export class StolenVehiclesService {
         return response.json();
       })
       .catch(this.handleError);
+  }
+
+  getByParams(model): Observable<any> {
+    return this.http
+    .post(this._getByParamsApi, model)
+    .map((response: Response) => {
+      return response.json();
+    })
+    .catch(this.handleError);
   }
 
   addNew(data: any): Observable<any> {

@@ -7,6 +7,7 @@ export class DeadBodiesService {
 
   private _allApi = 'http://spapp.dezinersstudio.com/api/dead-bodies/read.php';
   private _addApi = 'http://spapp.dezinersstudio.com/api/dead-bodies/add.php';
+  private _getByParamsApi = 'http://spapp.dezinersstudio.com/api/dead-bodies/read_byparams.php';
 
   constructor(private http: Http) { }
 
@@ -17,6 +18,15 @@ export class DeadBodiesService {
         return response.json();
       })
       .catch(this.handleError);
+  }
+
+  getByParams(model): Observable<any> {
+    return this.http
+    .post(this._getByParamsApi, model)
+    .map((response: Response) => {
+      return response.json();
+    })
+    .catch(this.handleError);
   }
 
   addNew(data: any): Observable<any> {

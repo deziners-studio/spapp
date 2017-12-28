@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MissingPersonsService } from '../services/missing-persons/missing-persons.service';
 import { PoliceStationsService } from '../services/police-stations/police-stations.service';
 
@@ -10,15 +11,12 @@ import { PoliceStationsService } from '../services/police-stations/police-statio
 export class MissingPersonsComponent implements OnInit {
 
   missingPersonsData: any;
+  missingPersonsCount = 0;
   policeStations: any = [];
-  formModel: any = {
-    name: '',
-    missingRegNo: null,
-    policeStation: null
-  }
+  searchForm: FormGroup;
 
   constructor(
-    private missingPersonsService: MissingPersonsService, 
+    private missingPersonsService: MissingPersonsService,
     private policeStationsService: PoliceStationsService
   ) { }
 
@@ -33,29 +31,58 @@ export class MissingPersonsComponent implements OnInit {
         console.log('Error', error);
       }
     );
+
+    this.searchForm = new FormGroup({
+      name: new FormControl('', [
+        Validators.required
+      ]),
+      missing_registration_no: new FormControl('', [
+        Validators.required
+      ]),
+      missing_from: new FormControl('', [
+        Validators.required,
+      ]),
+      police_station: new FormControl('', [
+        Validators.required,
+      ])
+    });
   }
 
-  onSearchClick() {
-    console.log(' formModel---> ', this.formModel);
-    this.missingPersonsService.getByParams(this.prepareSearch(this.formModel))
-    .subscribe(
-      (result) => {
-        // console.log('Result: ', result);
-        this.missingPersonsData = result.records;
-        console.log(' this.missingPersonsData -->', this.missingPersonsData);
-      },
-      (error) => {
-        console.log('Error', error);
-      }
-    );
-  }
-
-  prepareSearch(data) {
+  private prepareSave(data) {
     let input = new FormData();
-        input.append('name', data.name);
-        input.append('missing_registration_no', data.missingRegNo);
-        input.append('police_station', data.policeStation);
-        return input;
+
+    input.append('name', data.name);
+    input.append('missing_registration_no', data.missing_registration_no);
+    input.append('police_station', data.police_station);
+    return input;
+  }
+
+  onSearchClick(data) {
+    console.log('Form Data: ', data);
+
+    const formModel = this.prepareSave(data);
+    console.log('Sending Data: ', formModel);
+
+    this.missingPersonsService.getByParams(formModel)
+      .subscribe(
+        (result) => {
+          console.log('Result: ', result);
+          if ( result.records ) {
+            this.missingPersonsData = result.records;
+            this.missingPersonsCount = this.missingPersonsData.length;
+          } else {
+            this.missingPersonsData = [];
+            this.missingPersonsCount = 0;
+          }
+          if ( result.status === 'success' ) {
+            this.searchForm.reset();
+          }
+        },
+        (error) => {
+          this.missingPersonsCount = 0;
+          console.log('Error: ', error);
+        }
+      );
   }
 
 }
