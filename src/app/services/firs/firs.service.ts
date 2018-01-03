@@ -6,10 +6,10 @@ import 'rxjs/Rx';
 @Injectable()
 export class FirsService {
 
-  private _allFirsApi = 'http://spapp.dezinersstudio.com/api/fir-accident/read.php';
-  private _addApi = 'http://spapp.dezinersstudio.com/api/fir-accident/add.php';
-  private _oneFirsApi = 'http://spapp.dezinersstudio.com/api/fir-accident/read_one.php';
-  private _updateFirApi = 'http://spapp.dezinersstudio.com/api/fir-accident/update.php';
+  private _allFirsApi = 'http://spapp.sentr.co.in/api/fir-accident/read.php';
+  private _addApi = 'http://spapp.sentr.co.in/api/fir-accident/add.php';
+  private _oneFirsApi = 'http://spapp.sentr.co.in/api/fir-accident/read_one.php';
+  private _updateFirApi = 'http://spapp.sentr.co.in/api/fir-accident/update.php';
 
   constructor(private http: Http) { }
 
@@ -20,6 +20,15 @@ export class FirsService {
         return response.json();
       })
       .catch(this.handleError);
+  }
+
+  getByParams(model): Observable<any> {
+    return this.http
+    .post(this._oneFirsApi, model)
+    .map((response: Response) => {
+      return response.json();
+    })
+    .catch(this.handleError);
   }
 
   updateFir(data: any): Observable<any> {

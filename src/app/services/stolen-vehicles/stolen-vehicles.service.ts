@@ -5,9 +5,9 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class StolenVehiclesService {
 
-  private _allApi = 'http://spapp.dezinersstudio.com/api/stolen-vehicles/read.php';
-  private _addApi = 'http://spapp.dezinersstudio.com/api/stolen-vehicles/add.php';
-  private _getByParamsApi = 'http://spapp.dezinersstudio.com/api/stolen-vehicles/read_byparams.php';
+  private _allApi = 'http://spapp.sentr.co.in/api/stolen-vehicles/read.php';
+  private _addApi = 'http://spapp.sentr.co.in/api/stolen-vehicles/add.php';
+  private _getByParamsApi = 'http://spapp.sentr.co.in/api/stolen-vehicles/read_byparams.php';
 
   constructor(private http: Http) { }
 

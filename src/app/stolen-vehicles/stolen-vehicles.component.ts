@@ -36,6 +36,8 @@ export class StolenVehiclesComponent implements OnInit {
     'Option 13',
     'Other'
   ];
+  showDataView = false;
+  dataCount = 0;
 
   constructor(
     private stolenVehiclesService: StolenVehiclesService,
@@ -89,7 +91,8 @@ export class StolenVehiclesComponent implements OnInit {
     let input = new FormData();
 
     input.append('fir_no', data.fir_no);
-    input.append('fir_date', data.fir_date);
+    // input.append('fir_date', data.fir_date);
+    input.append('fir_date', data.fir_date.year + '-' + data.fir_date.month + '-' + data.fir_date.day);
     input.append('vehicle_type', data.vehicle_type);
     input.append('vehicle_make', data.vehicle_make);
     input.append('vehicle_model', data.vehicle_model);
@@ -112,10 +115,12 @@ export class StolenVehiclesComponent implements OnInit {
           console.log('Result: ', result);
           if ( result.records ) {
             this.stolenVehiclesData = result.records;
-            this.stolenVehiclesCount = this.stolenVehiclesData.length;
+            this.dataCount =  this.stolenVehiclesData.length;
+            this.showDataView = true;
           } else {
             this.stolenVehiclesData = [];
-            this.stolenVehiclesCount = 0;
+            this.dataCount = 0;
+            this.showDataView = true;
           }
           if ( result.status === 'success' ) {
             this.searchForm.reset();

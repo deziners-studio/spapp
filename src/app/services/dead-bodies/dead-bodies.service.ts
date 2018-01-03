@@ -5,9 +5,9 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class DeadBodiesService {
 
-  private _allApi = 'http://spapp.dezinersstudio.com/api/dead-bodies/read.php';
-  private _addApi = 'http://spapp.dezinersstudio.com/api/dead-bodies/add.php';
-  private _getByParamsApi = 'http://spapp.dezinersstudio.com/api/dead-bodies/read_byparams.php';
+  private _allApi = 'http://spapp.sentr.co.in/api/dead-bodies/read.php';
+  private _addApi = 'http://spapp.sentr.co.in/api/dead-bodies/add.php';
+  private _getByParamsApi = 'http://spapp.sentr.co.in/api/dead-bodies/read_byparams.php';
 
   constructor(private http: Http) { }
 

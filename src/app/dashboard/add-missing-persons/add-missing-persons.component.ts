@@ -89,9 +89,11 @@ export class AddMissingPersonsComponent implements OnInit {
 
     input.append('name', data.name);
     input.append('missing_registration_no', data.missing_registration_no);
-    input.append('missing_from', data.missing_from);
+    // input.append('missing_from', data.missing_from);
+    input.append('missing_from', data.missing_from.year + '-' + data.missing_from.month + '-' + data.missing_from.day);
     input.append('gender', data.gender);
-    input.append('dob', data.dob);
+    // input.append('dob', data.dob);
+    input.append('dob', data.dob.year + '-' + data.dob.month + '-' + data.dob.day);
     input.append('age', data.age);
     input.append('height', data.height);
     input.append('skin_colour', data.skin_colour);

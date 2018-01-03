@@ -2,42 +2,79 @@
 <div class="content-container page-area">
   <div class="container">
     <h4 class="ng-scope">Fir / Accident Information</h4>
-    <form class="form search-form">
+    <form class="form search-form" [formGroup]="searchForm" novalidate (ngSubmit)="onSearchClick(searchForm.value)">
         <div class="row">
             <div class="col-md-3">
-                <label for="">CR No.</label>
-                <input type="text" class="form-control" name="crno" placeholder="CR No." aria-invalid="false">
+                <label for="crno">CR No.</label>
+                <input type="text" class="form-control" formControlName="crno" placeholder="CR No." aria-invalid="false">
             </div>
             <div class="col-md-2">
-                <label for="">Type</label>
-                <select name="type" ng-model="type" class="form-control" aria-invalid="false">
-                        <option value="" selected="selected">Select Type</option>
+                <label for="type">Type</label>
+                <select formControlName="type" class="form-control" aria-invalid="false">
+                    <option value="" selected="selected">Select Type</option>
                     <option value="FIR">FIR</option>
                     <option value="Accident Information">Accident Information</option>
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="">Police Station</label>
-                <select name="policeStation" class="form-control">
+                <label for="police_station">Police Station</label>
+                <select formControlName="police_station" class="form-control">
                     <option value="" selected="selected">Select Police Station</option>
-                    <option *ngFor="let item of policeStations" value="{{item.ps_id}}">{{ item.ps_station_name }}</option>
+                    <option *ngFor="let item of policeStations" [value]="item.ps_id">{{ item.ps_station_name }}</option>
                 </select>
             </div>
             <div class="col-md-2">
-                <label for="">Select Date</label>
+                <label for="date">Select Date</label>
+                <!-- <input type="text" class="form-control" formControlName="date" placeholder="YYYY-MM-DD" aria-invalid="false"> -->
+                <!-- <date-picker formControlName="date"></date-picker> -->
                 <div class="input-group">
-                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-valid-required ng-valid-date" uib-datepicker-popup="" ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" required="required" aria-invalid="false">
-                        <div uib-datepicker-popup-wrap="" ng-model="date" ng-change="dateSelection(date)" template-url="uib/template/datepickerPopup/popup.html" class="ng-pristine ng-untouched ng-valid ng-scope ng-not-empty" aria-invalid="false"><!-- ngIf: isOpen --></div>
-                    <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    <input class="form-control" placeholder="yyyy-mm-dd"
+                            name="dp" formControlName="date" ngbDatepicker #d="ngbDatepicker">
+                    <span class="input-group-addon" (click)="d.toggle()">
+                        <i class="glyphicon glyphicon-calendar"></i>
                     </span>
                 </div>
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-primary" style="margin-top: 22px;" (click)="onSearchClick()">Search</button>
+                <button type="submit" class="btn btn-primary" [disabled]="searchForm.invalid" style="margin-top: 22px;">Search</button>
             </div>
         </div>
     </form>
+
+    <div class="row" *ngIf="showDataView" style="margin-top: 15px; margin-bottom: 15px;">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <p style="padding: 5px 10px;" [ngClass]="{'bg-success': dataCount > 0, 'bg-danger': dataCount === 0}">{{ dataCount }} records found</p>
+
+            <div class="persons-list" *ngFor="let item of firAccidentData">
+                <div class="person-details">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th width="20%">Cr. No.:</th>
+                                <td>{{ item.fa_crno }}</td>
+                            </tr>
+                            <tr>
+                                <th>Information Type:</th>
+                                <td>{{ item.fa_type }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date:</th>
+                                <td>{{ item.fa_date }}</td>
+                            </tr>
+                            <tr>
+                                <th>Police Station:</th>
+                                <td>{{ item.fa_police_station_id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Download:</th>
+                                <td><a href="{{ item.fa_attachment }}" target="_blank">{{ item.fa_filename }}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <div class="custom-pdv-viewer" *ngIf="isShowPdfEnabled" style="margin-top: 15px;">
         <div class="pdf-viewer-header">

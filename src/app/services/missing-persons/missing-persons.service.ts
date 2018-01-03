@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class MissingPersonsService {
 
-  private _allApi = 'http://spapp.dezinersstudio.com/api/missing-persons/read.php';
-  private _addApi = 'http://spapp.dezinersstudio.com/api/missing-persons/add.php';
-  private _getOneApi = 'http://spapp.dezinersstudio.com/api/missing-persons/read_one.php';
-  private _getByParamsApi = 'http://spapp.dezinersstudio.com/api/missing-persons/read_byparams.php';
+  private _allApi = 'http://spapp.sentr.co.in/api/missing-persons/read.php';
+  private _addApi = 'http://spapp.sentr.co.in/api/missing-persons/add.php';
+  private _getOneApi = 'http://spapp.sentr.co.in/api/missing-persons/read_one.php';
+  private _getByParamsApi = 'http://spapp.sentr.co.in/api/missing-persons/read_byparams.php';
 
   constructor(private http: Http) { }
 

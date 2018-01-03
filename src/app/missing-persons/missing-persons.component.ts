@@ -14,6 +14,8 @@ export class MissingPersonsComponent implements OnInit {
   missingPersonsCount = 0;
   policeStations: any = [];
   searchForm: FormGroup;
+  showDataView = false;
+  dataCount = 0;
 
   constructor(
     private missingPersonsService: MissingPersonsService,
@@ -69,10 +71,12 @@ export class MissingPersonsComponent implements OnInit {
           console.log('Result: ', result);
           if ( result.records ) {
             this.missingPersonsData = result.records;
-            this.missingPersonsCount = this.missingPersonsData.length;
+            this.dataCount =  this.missingPersonsData.length;
+            this.showDataView = true;
           } else {
             this.missingPersonsData = [];
-            this.missingPersonsCount = 0;
+            this.dataCount = 0;
+            this.showDataView = true;
           }
           if ( result.status === 'success' ) {
             this.searchForm.reset();

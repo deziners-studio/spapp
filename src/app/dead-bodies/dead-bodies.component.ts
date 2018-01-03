@@ -18,6 +18,8 @@ export class DeadBodiesComponent implements OnInit {
     'Male',
     'Female'
   ];
+  showDataView = false;
+  dataCount = 0;
 
   constructor(
     private deadBodiesService: DeadBodiesService,
@@ -59,7 +61,8 @@ export class DeadBodiesComponent implements OnInit {
     let input = new FormData();
 
     input.append('ad_no', data.ad_no);
-    input.append('date', data.date);
+    // input.append('date', data.date);
+    input.append('date', data.date.year + '-' + data.date.month + '-' + data.date.day);
     input.append('gender', data.gender);
     input.append('age', data.age);
     input.append('police_station', data.police_station);
@@ -78,10 +81,12 @@ export class DeadBodiesComponent implements OnInit {
           console.log('Result: ', result);
           if ( result.records ) {
             this.deadBodiesData = result.records;
-            this.deadBodiesCount = this.deadBodiesData.length;
+            this.dataCount =  this.deadBodiesData.length;
+              this.showDataView = true;
           } else {
             this.deadBodiesData = [];
-            this.deadBodiesCount = 0;
+            this.dataCount = 0;
+            this.showDataView = true;
           }
           if ( result.status === 'success' ) {
             this.searchForm.reset();

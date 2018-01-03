@@ -61,7 +61,8 @@ export class AddFirsComponent implements OnInit {
     input.append('type', data.type);
     input.append('crno', data.crno);
     input.append('police_station', data.police_station);
-    input.append('date', data.date);
+    // input.append('date', data.date);
+    input.append('date', data.date.year + '-' + data.date.month + '-' + data.date.day);
     input.append('filename', data.filename);
     input.append('attachment', data.attachment);
     return input;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MissingPersonsService } from '../services/missing-persons/missing-persons.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PoliceStationsService } from '../services/police-stations/police-stations.service';
+import { FirsService } from '../services/firs/firs.service';
 
 @Component({
     selector: 'fir-accident',
@@ -9,16 +10,20 @@ import { PoliceStationsService } from '../services/police-stations/police-statio
 })
 export class FirAccidentComponent implements OnInit {
 
-    private pdfSrc = '../assets/cr.no.46-6.11.2017-CCTNSPalghar.pdf';
+    // private pdfSrc = '../assets/cr.no.46-6.11.2017-CCTNSPalghar.pdf';
+    private pdfSrc = '';
     public isShowPdfEnabled = false;
-    missingPersonsData: any;
+    firAccidentData: any;
+    searchForm: FormGroup;
     policeStations: any = [];
     totalPages: number;
     switchPdf = true;
     pdfViewerOptions: any;
+    showDataView = false;
+    dataCount = 0;
 
     constructor(
-        private missingPersonsService: MissingPersonsService,
+        private firsService: FirsService,
         private policeStationsService: PoliceStationsService
     ) {
         this.pdfViewerOptions = {
@@ -43,6 +48,21 @@ export class FirAccidentComponent implements OnInit {
             console.log('Error', error);
           }
         );
+
+        this.searchForm = new FormGroup({
+            crno: new FormControl('', [
+              Validators.required
+            ]),
+            type: new FormControl('', [
+              Validators.required
+            ]),
+            police_station: new FormControl('', [
+              Validators.required,
+            ]),
+            date: new FormControl('', [
+                Validators.required,
+            ]),
+          });
     }
 
     nextPage() {
@@ -57,9 +77,52 @@ export class FirAccidentComponent implements OnInit {
     this.totalPages = pdfData.numPages;
     }
 
-    public onSearchClick() {
-        this.isShowPdfEnabled = true;
+    private prepareSave(data) {
+        let input = new FormData();
+
+        input.append('crno', data.crno);
+        input.append('type', data.type);
+        // input.append('date', data.date);
+        input.append('date', data.date.year + '-' + data.date.month + '-' + data.date.day);
+        input.append('police_station', data.police_station);
+        return input;
+    }
+
+    changePDF() {
+        this.pdfSrc = 'http://spapp.sentr.co.in/uploads/fir-accident/' + this.firAccidentData[0].fa_filename;
+    }
+
+    public onSearchClick(data) {
+        this.pdfSrc = '';
         console.log(' this.isShowPdfEnabled --> ', this.isShowPdfEnabled);
+        console.log('Form Data: ', data);
+        const formModel = this.prepareSave(data);
+        console.log('Sending Data: ', formModel);
+
+        this.firsService.getByParams(formModel)
+        .subscribe(
+            (result) => {
+            console.log('Result: ', result);
+            if ( result.records ) {
+                this.firAccidentData = result.records;
+                this.dataCount =  this.firAccidentData.length;
+                this.showDataView = true;
+                console.log('FIRs: ', this.firAccidentData);
+                this.isShowPdfEnabled = true;
+                this.changePDF();
+            } else {
+                this.firAccidentData = [];
+                this.dataCount = 0;
+                this.showDataView = true;
+            }
+            if ( result.status === 'success' ) {
+                this.searchForm.reset();
+            }
+            },
+            (error) => {
+            console.log('Error: ', error);
+            }
+        );
     }
 
 }

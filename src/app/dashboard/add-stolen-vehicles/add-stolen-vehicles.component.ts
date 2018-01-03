@@ -99,7 +99,8 @@ export class AddStolenVehiclesComponent implements OnInit {
     let input = new FormData();
 
     input.append('fir_no', data.fir_no);
-    input.append('fir_date', data.fir_date);
+    // input.append('fir_date', data.fir_date);
+    input.append('fir_date', data.fir_date.year + '-' + data.fir_date.month + '-' + data.fir_date.day);
     input.append('vehicle_type', data.vehicle_type);
 
     if ( data.vehicle_make === 'Other' ) {

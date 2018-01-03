@@ -7,6 +7,7 @@
     padding-top: 15px;
     padding-bottom: 15px;
     background-color: #fff;
+    min-height: 300px;
     -webkit-box-shadow: 0 0 15px -2px rgba(0,0,0,.7);
     -moz-box-shadow: 0 0 15px -2px rgba(0,0,0,.7);
     -o-box-shadow: 0 0 15px -2px rgba(0,0,0,.7);
@@ -64,4 +65,44 @@
     width: 20px;
     text-align: center;
     color: #333;
+}
+
+.persons-list {
+    display: flex;
+    align-items: stretch;
+    background-color: #f1f1f1;
+    /* max-height: 280px; */
+    overflow: hidden;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.persons-list > div {
+    width: 100px;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.person-photo {
+    overflow: hidden;
+    max-height: 100%;
+    flex-grow: 2;
+}
+
+.person-photo > img {
+    max-width: 100%;
+}
+
+.person-details {
+    overflow: hidden;
+    flex-grow: 8;
+}
+
+.person-details > .table > tbody > tr > td,
+.person-details > .table > tbody > tr > th,
+.person-details > .table > tfoot > tr > td,
+.person-details > .table > tfoot > tr > th,
+.person-details > .table > thead > tr > td,
+.person-details > .table > thead > tr > th {
+    border-top: none;
 }

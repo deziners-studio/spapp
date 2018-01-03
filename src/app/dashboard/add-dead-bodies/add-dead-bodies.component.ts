@@ -71,7 +71,8 @@ export class AddDeadBodiesComponent implements OnInit {
     let input = new FormData();
 
     input.append('ad_no', data.ad_no);
-    input.append('date', data.date);
+    // input.append('date', data.date);
+    input.append('date', data.date.year + '-' + data.date.month + '-' + data.date.day);
     input.append('time', data.time);
     input.append('gender', data.gender);
     input.append('age', data.age);

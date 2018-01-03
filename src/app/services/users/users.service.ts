@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UsersService {
 
-  private _allApi = 'http://spapp.dezinersstudio.com/api/users/read.php';
-  private _addApi = 'http://spapp.dezinersstudio.com/api/users/add.php';
+  private _allApi = 'http://spapp.sentr.co.in/api/users/read.php';
+  private _addApi = 'http://spapp.sentr.co.in/api/users/add.php';
 
   constructor(
     private http: Http

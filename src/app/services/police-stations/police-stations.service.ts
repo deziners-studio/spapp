@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class PoliceStationsService {
 
-  private _apiUrl = 'http://spapp.dezinersstudio.com/api/police-station/read.php';
+  private _apiUrl = 'http://spapp.sentr.co.in/api/police-station/read.php';
 
   constructor(private http: Http) { }
 
